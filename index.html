@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Batalha Química</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-blob blob-a"></div><div class="bg-blob blob-b"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-orb">⚛</span><div><strong>Batalha Química</strong><small>Aprenda jogando</small></div></div>
+    <button id="homeBtn" class="ghost hidden">Início</button>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">DESAFIO DE QUÍMICA</span>
+          <h1>Domine os <span>118 elementos</span> como um jogo.</h1>
+          <p>Treine símbolos, nomes, átomo e tabela periódica. Depois chame seus colegas para uma batalha em tempo real.</p>
+          <div class="hero-actions"><button id="practiceBtn" class="primary">🎯 Treinar sozinho</button><button id="onlineBtn" class="secondary">🌐 Jogar online</button></div>
+          <div class="stats"><div><b>118</b><span>elementos</span></div><div><b>4</b><span>tipos de desafio</span></div><div><b>50</b><span>jogadores/sala</span></div></div>
+        </div>
+        <aside class="mini-card"><div class="atom-visual"><div class="nucleus">H</div><i class="orbit o1"></i><i class="orbit o2"></i><i class="electron e1"></i><i class="electron e2"></i></div><h3>Seu objetivo</h3><p>Responder certo, rápido e aprender com cada erro.</p></aside>
+      </div>
+      <div class="topic-row"><div class="topic-card"><span>01</span><b>Nome → símbolo</b><p>Ex.: Ferro → Fe</p></div><div class="topic-card"><span>02</span><b>Símbolo → nome</b><p>Ex.: Na → Sódio</p></div><div class="topic-card"><span>03</span><b>Conceitos</b><p>Átomo e tabela periódica</p></div></div>
+    </section>
+
+    <section id="practiceView" class="view">
+      <div class="section-head"><div><span class="eyebrow">MODO TREINO</span><h2>Pratique no seu ritmo</h2></div><button id="practiceBack" class="ghost">← Voltar</button></div>
+      <div class="practice-layout"><div class="quiz-card"><div class="quiz-meta"><span id="practiceType">DESAFIO</span><span id="practiceProgress">1 / 10</span></div><div class="progress"><i id="practiceBar"></i></div><div id="practicePrompt" class="big-question"></div><div id="practiceAnswerArea"></div><button id="practiceSubmit" class="primary full">Responder</button><div id="practiceFeedback" class="feedback"></div></div><aside class="score-card"><div class="score-label">Pontos</div><div id="practiceScore" class="big-score">0</div><div class="streak">🔥 Sequência: <b id="practiceStreak">0</b></div><button id="newPractice" class="secondary full">Novo treino</button></aside></div>
+    </section>
+
+    <section id="onlineView" class="view"><div class="section-head"><div><span class="eyebrow">MODO ONLINE</span><h2>Monte uma sala e convide sua turma</h2></div><button id="onlineBack" class="ghost">← Voltar</button></div>
+      <div class="online-grid"><div class="panel"><h3>Criar sala</h3><label>Seu apelido<input id="createName" maxlength="18" placeholder="Ex.: João"></label><label>Quantidade de perguntas<select id="questionCount"><option value="5">5 — rápido</option><option value="10" selected>10 — padrão</option><option value="15">15 — desafio</option><option value="20">20 — maratona</option></select></label><label>Modo<select id="mode"><option value="mixed" selected>Misturado</option><option value="name-to-symbol">Nome → símbolo</option><option value="symbol-to-name">Símbolo → nome</option><option value="definition">Conceitos</option></select></label><button id="createBtn" class="primary full">Criar sala</button></div>
+      <div class="panel"><h3>Entrar em uma sala</h3><label>Seu apelido<input id="joinName" maxlength="18" placeholder="Ex.: Maria"></label><label>Código da sala<input id="roomCode" maxlength="5" placeholder="ABCDE" autocapitalize="characters"></label><button id="joinBtn" class="secondary full">Entrar</button><div id="onlineError" class="feedback error"></div></div></div>
+    </section>
+
+    <section id="lobbyView" class="view"><div class="lobby-top"><div><span class="eyebrow">SALA</span><h2>Código: <strong id="lobbyCode">-----</strong></h2><p>Compartilhe o código com seus colegas.</p></div><button id="copyCode" class="secondary">📋 Copiar código</button></div><div class="lobby-grid"><div class="panel players-panel"><div class="panel-title"><h3>Jogadores</h3><span id="playerCount">0</span></div><div id="playersList" class="players-list"></div></div><div class="panel host-panel"><h3>Pronto para começar?</h3><p id="hostHint">Aguardando o criador da sala.</p><button id="startBtn" class="primary full hidden">🚀 Começar batalha</button><div class="rules"><b>Como funciona</b><p>Todos recebem a mesma pergunta. Quanto mais rápido acertar, mais pontos ganha.</p></div></div></div></section>
+
+    <section id="gameView" class="view"><div class="game-top"><div><span class="eyebrow">BATALHA</span><div id="roundLabel">Pergunta 1 / 10</div></div><div class="timer"><span>⏱</span><b id="timer">15</b></div></div><div class="progress"><i id="gameBar"></i></div><div class="game-grid"><div class="panel question-panel"><div id="questionTag" class="question-tag">DESAFIO</div><div id="questionPrompt" class="game-question"></div><div id="gameAnswerArea"></div><button id="gameSubmit" class="primary full">Responder</button><div id="gameFeedback" class="feedback"></div></div><div class="panel live-score"><div class="panel-title"><h3>Placar ao vivo</h3><span id="answeredCount">0 responderam</span></div><div id="liveList"></div></div></div></section>
+
+    <section id="resultsView" class="view"><div class="results-card"><span class="eyebrow">FIM DA BATALHA</span><h2>🏆 Resultado</h2><div id="resultsPodium" class="podium"></div><div id="finalList" class="final-list"></div><button id="resultsHome" class="primary">Jogar novamente</button></div></section>
+  </main>
+  <footer>Feito para estudar química • Batalha Química</footer>
+  <script src="/socket.io/socket.io.js"></script><script src="app.js"></script>
+</body>
+</html>

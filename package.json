@@ -1,0 +1,12 @@
+{
+  "name": "batalha-quimica",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jogo online de química para estudar símbolos, nomes, átomo e tabela periódica.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": { "node": ">=20" }
+}

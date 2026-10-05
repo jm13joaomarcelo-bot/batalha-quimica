@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: batalha-quimica
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
